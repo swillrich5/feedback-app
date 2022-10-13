@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import Card from './shared/Card';
 import Button from './shared/Button';
+import RatingSelect from './RatingSelect';
 
 function FeedbackForm() {
-    const [text, setText] = useState('')
-    const [btnDisabled, setBtnDisabled] = useState(true)  // want to be disabled until 10 chars are typed in
-    const [message, setMessage] = useState('')
+    const [text, setText] = useState('');
+    const [btnDisabled, setBtnDisabled] = useState(true);  // want to be disabled until 10 chars are typed in
+    const [message, setMessage] = useState(''); 
+    const [rating, setRating] = useState(10);
 
     const handleTextChange = (e) => {
         if (text === '') {
@@ -18,7 +20,6 @@ function FeedbackForm() {
             setMessage(null);
             setBtnDisabled(false);
         }
-
         setText(e.target.value);
     }
 
@@ -26,7 +27,7 @@ function FeedbackForm() {
         <Card>
             <form>
                 <h2>How wouild you rate your service with us?</h2>
-                {/* @todo - rating select component */}
+                <RatingSelect select={(rating) => setRating(rating)} />
                 <div className="input-group">
                     <input 
                         onChange={handleTextChange} 
