@@ -25,15 +25,6 @@ function FeedbackList({ feedback, handleDelete }) {
         </AnimatePresence>
     </div>
   )
-
-//     <div className='feedback-list'>
-//         {feedback.map((item) =>(
-//             <div key={item.id}>
-//                 <FeedbackItem item={item} handleDelete={handleDelete} />
-//             </div>
-//         ))}
-//     </div>
-//   )
 }
 
 export default FeedbackList
